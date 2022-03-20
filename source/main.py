@@ -84,7 +84,7 @@ async def dox(ctx):
     gg = await ctx.send("Loading face...")
     time.sleep(1)
     await gg.delete()
-    await ctx.send(vastJEW)
+    await ctx.send(vastFace[random.randint(0, 1)])
     await ctx.send("FACE LOADED SUCCESFULLY!")
     time.sleep(0.1)
     poop = await ctx.send("Getting current cordinates...")
