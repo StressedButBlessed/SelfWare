@@ -9,6 +9,7 @@ import sys
 import json
 
 colorama.init()
+# op intruduction
 
 print( Fore.RED + """
   ██████ ▓█████  ██▓      █████▒█     █░ ▄▄▄       ██▀███  ▓█████         
@@ -39,25 +40,30 @@ data = json.load(file)
 
 token = data['token']
 
+# lets u know if its started
 @client.event
 async def on_ready():
     print("Online!")
 
+# sends mario 5 times
 @client.command()
 async def mario(ctx):
     for i in range(0,5):
-        await ctx.send("Wwwwww")
-    
+        await ctx.send("MARIO!")
+
+# same thing here except (Boptnet just hijacked u)
 @client.command()
 async def botnet(ctx):
     for i in range(0,5):
         await ctx.send("Boptnet just hijacked u")
 
+# Will get vastcast face status has a randomness of 3 faces
 @client.command()
 async def getvast(ctx):
-    await ctx.send(vastURI)
+    await ctx.send(vastFaces[random.randint(0, 2)])
     await ctx.send("success")
 
+# basic say command will say desired message and the amount of times with delay
 @client.command()
 async def say(ctx, arg, amount: int):
     await ctx.message.delete()
@@ -65,6 +71,7 @@ async def say(ctx, arg, amount: int):
         await ctx.send(arg)
         time.sleep(0.5)
 
+# Will get status of vastcast in a farmer cosplay 
 @client.command()
 async def farmer(ctx):
     await ctx.message.delete()
@@ -72,9 +79,10 @@ async def farmer(ctx):
     await ctx.send(farmerURI)
     await ctx.send("success")
 
+# Will auto dox vastcast [Most funniest command]
 @client.command()
 async def dox(ctx):
-    quote = vastQuotes[random.randint(0, 4)]
+    #quote = vastQuotes[random.randint(0, 4)]
     time.sleep(0.1)
     await ctx.message.delete()
     await ctx.send("Last name: bojaxhiu")
@@ -82,7 +90,7 @@ async def dox(ctx):
     gg = await ctx.send("Loading face...")
     time.sleep(1)
     await gg.delete()
-    await ctx.send(vastFace[random.randint(0, 1)])
+    await ctx.send(vastFaces[random.randint(0, 2)])
     await ctx.send("FACE LOADED SUCCESFULLY!")
     time.sleep(0.1)
     poop = await ctx.send("Getting current cordinates...")
@@ -94,22 +102,25 @@ async def dox(ctx):
     mayonas = await ctx.send("Fetching top quotes...")
     time.sleep(1)
     await mayonas.delete()
-    await ctx.send(quote)
+    await ctx.send(vastQuotes[random.randint(0, 4)])
     await ctx.send("SUCCESFULLY GOT TOP QUOTE!")
     await ctx.send("SUCCESFULLY RAN dox.exe WITHOUT PROBLEMS")
 
+# will get random quqte from the caster
 @client.command()
 async def quotecast(ctx):
-    quote = vastQuotes[random.randint(0, 4)]
+    #quote = vastQuotes[random.randint(0, 4)]
     time.sleep(0.05)
     await ctx.message.delete()
     awa = await ctx.send("Fetching quote...")
     time.sleep(0.25)
     await awa.delete()
-    await ctx.send(quote)
+    await ctx.send(vastQuotes[random.randint(0, 4)])
     time.sleep(0.05)
     await ctx.send("Succesfully fetched quote")
 
+# will try running the self bot on the token in config.json
+# otherwise it will print fake token logger :troll:
 try:
     client.run(token, bot=False)
 except:
