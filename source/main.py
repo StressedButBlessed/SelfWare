@@ -9,7 +9,6 @@ import colorama
 import sys
 import json
 import base64
-
 colorama.init()
 # op intruduction credit by bloody0
 
@@ -170,11 +169,14 @@ async def getbeloved(ctx):
     await ctx.send(beloved)
     await ctx.send("Bojaxhiu my beloved :heart:")
 
-# delete command
-
+@client.command()
 async def delete(ctx):
     if(data['deletecmds'] == True):
         await ctx.message.delete()
+
+@client.command()
+async def ip(ctx, user):
+    await ctx.send("127.0.0.1 or localhost")
 
 # will try running the self bot on the token in config.json
 # otherwise it will print fake token logger :troll: credit bloody0
