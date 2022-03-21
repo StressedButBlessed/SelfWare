@@ -10,7 +10,7 @@ import json
 import base64
 
 colorama.init()
-# op intruduction
+# op intruduction credit by bloody0
 
 print( Fore.RED + """
   ██████ ▓█████  ██▓      █████▒█     █░ ▄▄▄       ██▀███  ▓█████         
@@ -34,12 +34,45 @@ print( Fore.RED + """
       ░        ░  ░      ░           ░ ░            ░  ░      ░           
       """)
 
-client = commands.Bot(command_prefix="sudo ", self_bot=True, help_command=None)
-
+# import config & get token + prefix
 file = open('config.json')
 data = json.load(file)
 
 token = data['token']
+prefix = data['prefix']
+
+client = commands.Bot(command_prefix=prefix, self_bot=True, help_command=None)
+
+
+
+# help message !!!!!!!!!!!!!!!!!!!
+@client.command()
+async def help(ctx):
+    await ctx.message.delete()
+    await ctx.send("```\nPrefix: \"" + prefix + "\"\n" + '\n' +
+
+                   "help: Displays this message" + '\n' +
+
+                   "mario: sends \"MARIO!\" 5 times" + '\n' +
+
+                   "botnet: same as above but sends \"Boptnet just hijacked u\" instead" + '\n' +
+
+                   "getvast: will get vastcast face (randomness of 3 faces)" + '\n' +
+
+                   "say: send desired message x amount of times (prefix say \"hi bojaxhiu\" 5)" + '\n' +
+
+                   "farmer: sends vastcast in farmer cosplay" + '\n' +
+
+                   "dox: Will succesfully run vastcasts details on the discord client" + '\n' +
+
+                   "quotecast: 10$ will get vastcasts best coping msgs" + '\n' +
+
+                   "hack: sends user first part of token usage [prefix hack @user/id]" + '\n' +
+
+                   "getbeloved: gets vastcast in love locker being beloved ❤️" + '\n' +
+
+                   "\n```")
+
 
 # lets u know if its started
 @client.event
@@ -49,18 +82,21 @@ async def on_ready():
 # sends mario 5 times
 @client.command()
 async def mario(ctx):
+    await ctx.message.delete()
     for i in range(0,5):
         await ctx.send("MARIO!")
 
 # same thing here except (Boptnet just hijacked u)
 @client.command()
 async def botnet(ctx):
+    await ctx.message.delete()
     for i in range(0,5):
         await ctx.send("Boptnet just hijacked u")
 
 # Will get vastcast face status has a randomness of 3 faces
 @client.command()
 async def getvast(ctx):
+    await ctx.message.delete()
     await ctx.send(vastFaces[random.randint(0, 2)])
     await ctx.send("success")
 
@@ -83,7 +119,7 @@ async def farmer(ctx):
 # Will auto dox vastcast [Most funniest command]
 @client.command()
 async def dox(ctx):
-    #quote = vastQuotes[random.randint(0, 4)]
+    #quote = vastQuotes[random.randint(0, 4)] Bloody0 fixed this $$
     time.sleep(0.1)
     await ctx.message.delete()
     await ctx.send("Last name: bojaxhiu")
@@ -120,10 +156,12 @@ async def quotecast(ctx):
     time.sleep(0.05)
     await ctx.send("Succesfully fetched quote")
 
+# gets desired users first part of token credit null-swap
 @client.command()
 async def hack(ctx, user: discord.User):
     await ctx.send("<@" + str(user.id) + ">" + " your token starts with " + base64.b64encode(str(user.id).encode()).decode() + " get scared.")
 
+# send love locket meme about vastcast
 @client.command()
 async def getbeloved(ctx):
     await ctx.message.delete()
@@ -131,7 +169,7 @@ async def getbeloved(ctx):
     await ctx.send("Bojaxhiu my beloved :heart:")
 
 # will try running the self bot on the token in config.json
-# otherwise it will print fake token logger :troll:
+# otherwise it will print fake token logger :troll: credit bloody0
 try:
     client.run(token, bot=False)
 except:
