@@ -124,6 +124,12 @@ async def quotecast(ctx):
 async def hack(ctx, user: discord.User):
     await ctx.send("<@" + str(user.id) + ">" + " your token starts with " + base64.b64encode(str(user.id).encode()).decode() + " get scared.")
 
+@client.command()
+async def getbeloved(ctx):
+    await ctx.message.delete()
+    await ctx.send(beloved)
+    await ctx.send("Bojaxhiu my beloved :heart:")
+
 # will try running the self bot on the token in config.json
 # otherwise it will print fake token logger :troll:
 try:
