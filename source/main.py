@@ -83,28 +83,28 @@ async def on_ready():
 # sends mario 5 times
 @client.command()
 async def mario(ctx):
-    await ctx.message.delete()
+    await delete(ctx)
     for i in range(0,5):
         await ctx.send("MARIO!")
 
 # same thing here except (Boptnet just hijacked u)
 @client.command()
 async def botnet(ctx):
-    await ctx.message.delete()
+    await delete(ctx)
     for i in range(0,5):
         await ctx.send("Boptnet just hijacked u")
 
 # Will get vastcast face status has a randomness of 3 faces
 @client.command()
 async def getvast(ctx):
-    await ctx.message.delete()
+    await delete(ctx)
     await ctx.send(vastFaces[random.randint(0, 2)])
     await ctx.send("success")
 
 # basic say command will say desired message and the amount of times with delay
 @client.command()
 async def say(ctx, arg, amount: int):
-    await ctx.message.delete()
+    await delete(ctx)
     for i in range(0 , amount):
         await ctx.send(arg)
         time.sleep(0.5)
@@ -112,7 +112,7 @@ async def say(ctx, arg, amount: int):
 # Will get status of vastcast in a farmer cosplay 
 @client.command()
 async def farmer(ctx):
-    await ctx.message.delete()
+    await delete(ctx)
     await ctx.send("bojaxhiu status: at beteja e kabashit")
     await ctx.send(farmerURI)
     await ctx.send("success")
@@ -122,7 +122,7 @@ async def farmer(ctx):
 async def dox(ctx):
     #quote = vastQuotes[random.randint(0, 4)] Bloody0 fixed this $$
     time.sleep(0.1)
-    await ctx.message.delete()
+    await delete(ctx)
     await ctx.send("Last name: bojaxhiu")
     time.sleep(0.1)
     gg = await ctx.send("Loading face...")
@@ -149,7 +149,7 @@ async def dox(ctx):
 async def quotecast(ctx):
     #quote = vastQuotes[random.randint(0, 4)]
     time.sleep(0.05)
-    await ctx.message.delete()
+    await delete(ctx)
     awa = await ctx.send("Fetching quote...")
     time.sleep(0.25)
     await awa.delete()
@@ -160,12 +160,13 @@ async def quotecast(ctx):
 # gets desired users first part of token credit null-swap
 @client.command()
 async def hack(ctx, user: discord.User):
+    await delete(ctx)
     await ctx.send("<@" + str(user.id) + ">" + " your token starts with " + base64.b64encode(str(user.id).encode()).decode() + " get scared.")
 
 # send love locket meme about vastcast
 @client.command()
 async def getbeloved(ctx):
-    await ctx.message.delete()
+    await delete(ctx)
     await ctx.send(beloved)
     await ctx.send("Bojaxhiu my beloved :heart:")
 
