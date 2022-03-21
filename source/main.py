@@ -9,6 +9,7 @@ import colorama
 import sys
 import json
 import base64
+from faker import Faker
 colorama.init()
 # op intruduction credit by bloody0
 
@@ -174,9 +175,11 @@ async def delete(ctx):
     if(data['deletecmds'] == True):
         await ctx.message.delete()
 
+fake = Faker()
+
 @client.command()
 async def ip(ctx, user):
-    await ctx.send("127.0.0.1 or localhost")
+    await ctx.send(user + " Your ip address is " + fake.ipv4_private() + " behold... vastcast is visiting you")
 
 # will try running the self bot on the token in config.json
 # otherwise it will print fake token logger :troll: credit bloody0
