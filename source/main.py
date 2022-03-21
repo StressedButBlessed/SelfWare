@@ -170,7 +170,6 @@ async def getbeloved(ctx):
     await ctx.send(beloved)
     await ctx.send("Bojaxhiu my beloved :heart:")
 
-@client.command()
 async def delete(ctx):
     if(data['deletecmds'] == True):
         await ctx.message.delete()
