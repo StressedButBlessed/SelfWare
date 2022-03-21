@@ -6,6 +6,7 @@ from dope import *
 from colorama import Fore
 import colorama
 import sys
+import json
 
 colorama.init()
 
@@ -32,14 +33,11 @@ print( Fore.RED + """
       """)
 
 client = commands.Bot(command_prefix="$", self_bot=True, help_command=None)
-token = str(input("Please provide VastCast bojaxhiu with a token: "))
-switch={
-    0:vastQuotes[0],
-    1:vastQuotes[1],
-    2:vastQuotes[2],
-    3:vastQuotes[3],
-    4:vastQuotes[4]
-}
+
+file = open('config.json')
+data = json.load(file)
+
+token = data['token']
 
 @client.event
 async def on_ready():
@@ -76,7 +74,7 @@ async def farmer(ctx):
 
 @client.command()
 async def dox(ctx):
-    quote = switch.get(random.randint(0, 4), '')
+    quote = vastQuotes[random.randint(0, 4)]
     time.sleep(0.1)
     await ctx.message.delete()
     await ctx.send("Last name: bojaxhiu")
@@ -102,13 +100,13 @@ async def dox(ctx):
 
 @client.command()
 async def quotecast(ctx):
-    quote = switch.get(random.randint(0, 4), '')
+    quote = vastQuotes[random.randint(0, 4)]
     time.sleep(0.05)
     await ctx.message.delete()
     awa = await ctx.send("Fetching quote...")
     time.sleep(0.25)
     await awa.delete()
-    await ctx.send()
+    await ctx.send(quote)
     time.sleep(0.05)
     await ctx.send("Succesfully fetched quote")
 
