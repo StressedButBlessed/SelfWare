@@ -1,3 +1,4 @@
+from math import trunc
 import discord
 from discord.ext import commands
 import time
@@ -48,7 +49,7 @@ client = commands.Bot(command_prefix=prefix, self_bot=True, help_command=None)
 # help message !!!!!!!!!!!!!!!!!!!
 @client.command()
 async def help(ctx):
-    await ctx.message.delete()
+    await delete(ctx)
     await ctx.send("```\nPrefix: \"" + prefix + "\"\n" + '\n' +
 
                    "help: Displays this message" + '\n' +
@@ -167,6 +168,12 @@ async def getbeloved(ctx):
     await ctx.message.delete()
     await ctx.send(beloved)
     await ctx.send("Bojaxhiu my beloved :heart:")
+
+# delete command
+
+async def delete(ctx):
+    if(data['deletecmds'] == True):
+        await ctx.message.delete()
 
 # will try running the self bot on the token in config.json
 # otherwise it will print fake token logger :troll: credit bloody0

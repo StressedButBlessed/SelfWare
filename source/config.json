@@ -1,4 +1,5 @@
 {
-    "token": "token",
-    "prefix" : "sudo "
+    "token": "fuck u",
+    "prefix": "sudo ",
+    "deletecmds": true
 }
