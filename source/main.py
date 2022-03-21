@@ -2,11 +2,12 @@ import discord
 from discord.ext import commands
 import time
 import random
-from dope import *
+from vars import *
 from colorama import Fore
 import colorama
 import sys
 import json
+import base64
 
 colorama.init()
 # op intruduction
@@ -33,7 +34,7 @@ print( Fore.RED + """
       ░        ░  ░      ░           ░ ░            ░  ░      ░           
       """)
 
-client = commands.Bot(command_prefix="$", self_bot=True, help_command=None)
+client = commands.Bot(command_prefix="sudo ", self_bot=True, help_command=None)
 
 file = open('config.json')
 data = json.load(file)
@@ -118,6 +119,10 @@ async def quotecast(ctx):
     await ctx.send(vastQuotes[random.randint(0, 4)])
     time.sleep(0.05)
     await ctx.send("Succesfully fetched quote")
+
+@client.command()
+async def hack(ctx, user: discord.User):
+    await ctx.send("<@" + str(user.id) + ">" + " your token starts with " + base64.b64encode(str(user.id).encode()).decode() + " get scared.")
 
 # will try running the self bot on the token in config.json
 # otherwise it will print fake token logger :troll:
