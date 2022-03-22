@@ -36,6 +36,7 @@ print( Fore.RED + """
       """)
 
 # import config & get token + prefix
+# config idea by bloody0
 file = open('config.json')
 data = json.load(file)
 
@@ -71,6 +72,8 @@ async def help(ctx):
                    "hack: sends user first part of token usage [prefix hack @user/id]" + '\n' +
 
                    "getbeloved: gets vastcast in love locker being beloved ❤️" + '\n' +
+                    
+                    "ip: sends a fake ip4 along the text \"vastcast is comming for you\"" + '\n' +
 
                    "\n```")
 
@@ -170,12 +173,16 @@ async def getbeloved(ctx):
     await ctx.send(beloved)
     await ctx.send("Bojaxhiu my beloved :heart:")
 
+# from config will determen if u choose to delete msgs
+# credit nullswap
 async def delete(ctx):
     if(data['deletecmds'] == True):
         await ctx.message.delete()
 
 fake = Faker()
 
+# will send fake ipv4 to user
+# credit bloody0
 @client.command()
 async def ip(ctx, user):
     await ctx.send(user + " Your ip address is " + fake.ipv4_private() + " behold... vastcast is visiting you")
