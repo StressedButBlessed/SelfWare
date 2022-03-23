@@ -51,35 +51,40 @@ client = commands.Bot(command_prefix=prefix, self_bot=True, help_command=None)
 @client.command()
 async def help(ctx):
     await delete(ctx)
-    await ctx.send("```\nPrefix: \"" + prefix + "\"\n\n" +
+    g = await ctx.send("```fix\nSuccesfully printed help message to console```")
+    
+    print("\nPrefix: \"" + prefix + "\"\n\n" +
 
-                    "help: Displays this message" + '\n' +
+"help: Displays this message" + '\n' +
 
-                    "mario: sends \"MARIO!\" 5 times" + '\n' +
+"mario: sends \"MARIO!\" 5 times" + '\n' +
 
-                    "botnet: same as above but sends \"Boptnet just hijacked u\" instead" + '\n' +
+"botnet: same as above but sends \"Boptnet just hijacked u\" instead" + '\n' +
 
-                    "getvast: will get vastcast face (randomness of 3 faces)" + '\n' +
+"getvast: will get vastcast face (randomness of 3 faces)" + '\n' +
 
-                    "say: send desired message x amount of times (prefix say \"hi bojaxhiu\" 5)" + '\n' +
+"say: send desired message x amount of times (prefix say \"hi bojaxhiu\" 5)" + '\n' +
 
-                    "farmer: sends vastcast in farmer cosplay" + '\n' +
+"farmer: sends vastcast in farmer cosplay" + '\n' +
 
-                    "dox: Will succesfully run vastcasts details on the discord client" + '\n' +
+"dox: Will succesfully run vastcasts details on the discord client" + '\n' +
 
-                    "quotecast: 10$ will get vastcasts best coping msgs" + '\n' +
+"quotecast: 10$ will get vastcasts best coping msgs" + '\n' +
 
-                    "hack: sends user first part of token usage [prefix hack @user/id]" + '\n' +
+"hack: sends user first part of token usage [prefix hack @user/id]" + '\n' +
 
-                    "getbeloved: gets vastcast in love locker being beloved ❤️" + '\n' +
+"getbeloved: gets vastcast in love locker being beloved ❤️" + '\n' +
                     
-                    "ip: sends a fake ip4 along the text \"vastcast is comming for you\"" + '\n' +
+"ip: sends a fake ip4 along the text \"vastcast is comming for you\"" + '\n' +
 
-                    "uninstallpop: Tries a program, should succesfully execute right?" + '\n' +
+"uninstallpop: Tries a program, should succesfully execute right?" + '\n' +
 
-                    "mail: Sends a text in a format like a letter (usage: prefix mail user/id \"msg\"" + '\n' +
+"mail: Sends a text in a format like a letter (usage: prefix mail user/id \"msg\"" + '\n' +
 
-                   "\n```")
+"")
+    
+    time.sleep(5)
+    await g.delete()
 
 # lets u know if its started
 @client.event
