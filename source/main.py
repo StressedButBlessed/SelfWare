@@ -210,7 +210,7 @@ async def mail(ctx, user: discord.User, msg):
     await delete(ctx)
     await ctx.send("Hi <@" + str(user.id) + ">," + '\n\n' +
                     msg + '\n\n' +
-                    signatures[random.randint(0, 2)] + '\n' +
+                    signatures[random.randint(0, 3)] + '\n' +
                     "-<@" + base64.b64decode(token[:24]).decode() + ">")
 
 
