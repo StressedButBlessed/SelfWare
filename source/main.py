@@ -81,6 +81,10 @@ async def help(ctx):
 
 "mail: Sends a text in a format like a letter (usage: prefix mail user/id \"msg\"" + '\n' +
 
+"ddox: generates fake info lol" + '\n' +
+
+"dmspam: You know what it means. args: user, message, times" + '\n' +
+
 "")
     
     time.sleep(5)
@@ -210,6 +214,15 @@ async def ip(ctx, user: discord.User):
 async def ddox(ctx, user: discord.User):
     await delete(ctx)
     await ctx.send("GUYS " + user.name.upper() + " LIVES AT " + fake.address().upper() + " AND HIS REAL LIFE NAME IS " + fake.name().upper() + " TRUST ME SOURCE IS VASTCAST")
+
+@client.command()
+async def dmspam(ctx, user: discord.User, msg: str, times: int):
+    await delete(ctx)
+    if(user.dm_channel == None):
+        user.create_dm()
+    for i in range(0,times):
+        await user.dm_channel.send(msg)
+        time.sleep(0.15)
 
 # idk funny fake program with vastcast as virus
 @client.command()
