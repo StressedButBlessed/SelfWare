@@ -11,3 +11,7 @@ vastQuotes = ["https://cdn.discordapp.com/attachments/933393321177526333/9552126
    "https://cdn.discordapp.com/attachments/933393321177526333/955212939391033405/Screenshot_20220207_175745.png",
     "https://cdn.discordapp.com/attachments/933393321177526333/955212995309473812/Screenshot_20220207_182805.png"]
 beloved = "https://cdn.discordapp.com/attachments/954885736090439730/954888963259248710/makesweet-j55jvv.gif"
+signatures = ["Cheers!",
+                 "xoxo!", 
+                    "Best of regards!"
+]

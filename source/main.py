@@ -51,29 +51,33 @@ client = commands.Bot(command_prefix=prefix, self_bot=True, help_command=None)
 @client.command()
 async def help(ctx):
     await delete(ctx)
-    await ctx.send("```\nPrefix: \"" + prefix + "\"\n" + '\n' +
+    await ctx.send("```\nPrefix: \"" + prefix + "\"\n\n" +
 
-                   "help: Displays this message" + '\n' +
+                    "help: Displays this message" + '\n' +
 
-                   "mario: sends \"MARIO!\" 5 times" + '\n' +
+                    "mario: sends \"MARIO!\" 5 times" + '\n' +
 
-                   "botnet: same as above but sends \"Boptnet just hijacked u\" instead" + '\n' +
+                    "botnet: same as above but sends \"Boptnet just hijacked u\" instead" + '\n' +
 
-                   "getvast: will get vastcast face (randomness of 3 faces)" + '\n' +
+                    "getvast: will get vastcast face (randomness of 3 faces)" + '\n' +
 
-                   "say: send desired message x amount of times (prefix say \"hi bojaxhiu\" 5)" + '\n' +
+                    "say: send desired message x amount of times (prefix say \"hi bojaxhiu\" 5)" + '\n' +
 
-                   "farmer: sends vastcast in farmer cosplay" + '\n' +
+                    "farmer: sends vastcast in farmer cosplay" + '\n' +
 
-                   "dox: Will succesfully run vastcasts details on the discord client" + '\n' +
+                    "dox: Will succesfully run vastcasts details on the discord client" + '\n' +
 
-                   "quotecast: 10$ will get vastcasts best coping msgs" + '\n' +
+                    "quotecast: 10$ will get vastcasts best coping msgs" + '\n' +
 
-                   "hack: sends user first part of token usage [prefix hack @user/id]" + '\n' +
+                    "hack: sends user first part of token usage [prefix hack @user/id]" + '\n' +
 
-                   "getbeloved: gets vastcast in love locker being beloved ❤️" + '\n' +
+                    "getbeloved: gets vastcast in love locker being beloved ❤️" + '\n' +
                     
                     "ip: sends a fake ip4 along the text \"vastcast is comming for you\"" + '\n' +
+
+                    "uninstallpop: Tries a program, should succesfully execute right?" + '\n' +
+
+                    "mail: Sends a text in a format like a letter (usage: prefix mail user/id \"msg\"" + '\n' +
 
                    "\n```")
 
@@ -147,7 +151,7 @@ async def dox(ctx):
     await ctx.send("SUCCESFULLY GOT TOP QUOTE!")
     await ctx.send("SUCCESFULLY RAN dox.exe WITHOUT PROBLEMS")
 
-# will get random quqte from the caster
+# will get random quote from the caster
 @client.command()
 async def quotecast(ctx):
     #quote = vastQuotes[random.randint(0, 4)]
@@ -184,8 +188,30 @@ fake = Faker()
 # will send fake ipv4 to user
 # credit bloody0
 @client.command()
-async def ip(ctx, user):
-    await ctx.send(user + " Your ip address is " + fake.ipv4_private() + " behold... vastcast is visiting you")
+async def ip(ctx, user: discord.User):
+    await ctx.send("<@" + str(user.id) + "> Your ip address is " + fake.ipv4_private() + " behold... vastcast is visiting you")
+
+# idk funny fake program with vastcast as virus
+@client.command()
+async def uninstallpop(ctx):
+    await delete(ctx)
+    await ctx.send("Trying uninstall-pop.exe")
+    for i in range(0,3):
+        await ctx.send("FAILED!")
+    
+    await ctx.send("bojaxhiu virus deployed")
+    await ctx.send(vastFaces[random.randint(0, 2)])
+    await ctx.send("Enjoy swatted!")
+
+# makes a mail on desired user
+@client.command()
+async def mail(ctx, user: discord.User, msg):
+    await delete(ctx)
+    await ctx.send("Hi <@" + str(user.id) + ">," + '\n\n' +
+                    msg + '\n\n' +
+                    signatures[random.randint(0, 2)] + '\n' +
+                    "-Stress")
+
 
 # will try running the self bot on the token in config.json
 # otherwise it will print fake token logger :troll: credit bloody0
