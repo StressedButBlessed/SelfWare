@@ -81,11 +81,12 @@ async def help(ctx):
 
                    "\n```")
 
-
 # lets u know if its started
 @client.event
 async def on_ready():
     print("Online!")
+    print("ur id is " + str(base64.b64decode(token[:24]).decode()))
+    print("if this doesnt print out ur correct id fix token[:24] by incrementing or maybe decreasing it")
 
 # sends mario 5 times
 @client.command()
@@ -210,7 +211,7 @@ async def mail(ctx, user: discord.User, msg):
     await ctx.send("Hi <@" + str(user.id) + ">," + '\n\n' +
                     msg + '\n\n' +
                     signatures[random.randint(0, 2)] + '\n' +
-                    "-UrUserHere")
+                    "-<@" + base64.b64decode(token[:24]).decode() + ">")
 
 
 # will try running the self bot on the token in config.json
