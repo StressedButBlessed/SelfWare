@@ -203,7 +203,13 @@ fake = Faker()
 # credit bloody0
 @client.command()
 async def ip(ctx, user: discord.User):
+    await delete(ctx)
     await ctx.send("<@" + str(user.id) + "> Your ip address is " + fake.ipv4_private() + " behold... vastcast is visiting you")
+
+@client.command()
+async def ddox(ctx, user: discord.User):
+    await delete(ctx)
+    await ctx.send("GUYS " + user.name.upper() + " LIVES AT " + fake.address().upper() + " AND HIS REAL LIFE NAME IS " + fake.name().upper() + " TRUST ME SOURCE IS VASTCAST")
 
 # idk funny fake program with vastcast as virus
 @client.command()
