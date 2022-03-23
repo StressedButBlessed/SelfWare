@@ -118,7 +118,7 @@ async def getvast(ctx):
 @client.command()
 async def getcedo(ctx):
     await delete(ctx)
-    await ctx.send(cedoQuotes[random.randint(0,2)])
+    await ctx.send(cedoQuotes[random.randint(0,5)])
     time.sleep(0.5)
     await ctx.send("successfully hacked into cedo desktop")
 
