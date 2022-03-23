@@ -114,6 +114,14 @@ async def getvast(ctx):
     await ctx.send(vastFaces[random.randint(0, 2)])
     await ctx.send("success")
 
+# Will get cedo smartness
+@client.command()
+async def getcedo(ctx):
+    await delete(ctx)
+    await ctx.send(cedoQuotes[random.randint(0,2)])
+    time.sleep(0.5)
+    await ctx.send("successfully hacked into cedo desktop")
+
 # basic say command will say desired message and the amount of times with delay
 @client.command()
 async def say(ctx, arg, amount: int):
