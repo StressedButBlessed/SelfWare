@@ -210,7 +210,7 @@ async def mail(ctx, user: discord.User, msg):
     await ctx.send("Hi <@" + str(user.id) + ">," + '\n\n' +
                     msg + '\n\n' +
                     signatures[random.randint(0, 2)] + '\n' +
-                    "-Stress")
+                    "-UrUserHere")
 
 
 # will try running the self bot on the token in config.json
