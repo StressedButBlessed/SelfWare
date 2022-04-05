@@ -1,9 +1,10 @@
 # SelfWare
-self bot on discord Private rn
+self bot on discord
 
 Free poop
 
 `pip install discord`
 
 `python main.py`
-change token to ur token! 
+change config.json to ur prefrences! 
+
