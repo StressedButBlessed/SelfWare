@@ -3,7 +3,7 @@ self bot on discord
 
 Free poop
 
-`pip install discord`
+`pip install discord colorama faker`
 
 `python main.py`
 
